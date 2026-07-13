@@ -12,3 +12,15 @@ Topics
 1. Testing
 1. Docker
 1. Kubernetes
+
+Built with technologies:
+
+1. Java 25
+1. Spring Boot 4
+1. Spring AI (más adelante)
+1. Kafka
+1. RabbitMQ
+1. Project Reactor
+1. Angular 21
+1. Docker
+1. Kubernetes
