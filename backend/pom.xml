@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://apache.org" xmlns:xsi="http://w3.org" xsi:schemaLocation="http://apache.org https://apache.org">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.1.0</version>
+    <relativePath/>
+  </parent>
+  <groupId>com.felipebarrera</groupId>
+  <artifactId>java-reactive-cookbook-for-restaurant</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>java-reactive-cookbook-for-restaurant</name>
+  <description>Java Reactive Recipe Book for Restaurants</description>
+  <properties>
+    <java.version>25</java.version>
+    <spring-cloud.version>2025.1.2</spring-cloud.version>
+  </properties>
+  <modules>
+    <module>bootstrap</module>
+    <module>shared</module>
+    <module>module/employee</module>
+    <module>module/inventory</module>
+    <module>module/kitchen</module>
+    <module>module/menu</module>
+    <module>module/notification</module>
+    <module>module/order</module>
+    <module>common</module>
+  </modules>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

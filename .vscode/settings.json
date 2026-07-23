@@ -1,0 +1,13 @@
+{
+    "java.jdt.ls.java.home": "C:\\app\\java\\jdk-25.0.2",
+    "maven.executable.path": "C:\\app\\apache\\apache-maven-3.9.16\\bin\\mvn.cmd",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\app\\java\\jdk-25.0.2",
+            "default": true
+        }
+    ],
+    "java.import.maven.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
