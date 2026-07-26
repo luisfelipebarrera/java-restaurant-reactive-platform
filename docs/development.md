@@ -27,3 +27,28 @@ mvn archetype:generate -DgroupId=com.felipebarrera -DartifactId=<module> -Darche
 ```
 
 mvn archetype:generate -DgroupId=com.felipebarrera -DartifactId=common -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+## Code Style
+
+Extensions
+
+Red Hat XML
+
+Used Visual Studio Code Settings JSON
+
+```batch
+{
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.tabSize": 2
+  },
+  ...
+  "xml.format.joinComments": true,
+  "xml.format.maxLineWidth": 120,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.tabSize": 4
+  },
+}
+
+```

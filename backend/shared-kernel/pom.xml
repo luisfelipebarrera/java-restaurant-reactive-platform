@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://apache.org" xmlns:xsi="http://w3.org"
+	xsi:schemaLocation="http://apache.org https://apache.org">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.felipebarrera</groupId>
+		<artifactId>java-restaurant-reactive-platform</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>shared-kernel</artifactId>
+	<name>shared-kernel</name>
+	<description>Shared Kernel</description>
+	<packaging>jar</packaging>
+	<dependencies />
+</project>

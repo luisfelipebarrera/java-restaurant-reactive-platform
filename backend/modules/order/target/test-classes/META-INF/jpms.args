@@ -1,0 +1,4 @@
+--patch-module
+com.felipebarrera.order=_
+--add-reads
+com.felipebarrera.order=ALL-UNNAMED

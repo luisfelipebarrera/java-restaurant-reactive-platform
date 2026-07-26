@@ -1,34 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://apache.org" xmlns:xsi="http://w3.org" xsi:schemaLocation="http://apache.org https://apache.org">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.1.0</version>
-    <relativePath/>
-  </parent>
+  <organization>
+    <name>Felipe Barrera</name>
+  </organization>
+  <licenses>
+    <license>
+        <name>Apache License, Version 2.0</name>
+        <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        <distribution>repo</distribution>
+    </license>
+  </licenses>
   <groupId>com.felipebarrera</groupId>
-  <artifactId>java-reactive-cookbook-for-restaurant</artifactId>
+  <artifactId>java-restaurant-reactive-platform</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>java-reactive-cookbook-for-restaurant</name>
-  <description>Java Reactive Recipe Book for Restaurants</description>
+  <name>java-restaurant-reactive-platform</name>
+  <description>Java Restaurant Reactive Platform</description>
   <properties>
     <java.version>25</java.version>
+    <maven.compiler.release>${java.version}</maven.compiler.release>
+    <micrometer-tracing.version>1.7.0</micrometer-tracing.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <spring-boot.version>4.1.0</spring-boot.version>
     <spring-cloud.version>2025.1.2</spring-cloud.version>
+    <testcontainers.version>2.0.5</testcontainers.version>
   </properties>
   <modules>
     <module>bootstrap</module>
-    <module>shared</module>
-    <module>module/employee</module>
-    <module>module/inventory</module>
-    <module>module/kitchen</module>
-    <module>module/menu</module>
-    <module>module/notification</module>
-    <module>module/order</module>
+    <module>shared-kernel</module>
+    <module>modules/employee</module>
+    <module>modules/inventory</module>
+    <module>modules/kitchen</module>
+    <module>modules/menu</module>
+    <module>modules/notification</module>
+    <module>modules/order</module>
     <module>common</module>
   </modules>
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-tracing-bom</artifactId>
+        <version>${micrometer-tracing.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
@@ -36,6 +60,32 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>${testcontainers.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <artifactId>maven-failsafe-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
