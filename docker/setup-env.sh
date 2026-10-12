@@ -12,7 +12,7 @@ set -e # Stop the script if a critical error occurs.
 
 # Configuring internal routes in Linux
 SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
-TARGET_DIR="$HOME/docker/ops-center"
+TARGET_DIR="$HOME/docker/java-restaurant-reactive-platform"
 WINDOWS_SRC="/mnt/e/repository/java-restaurant-reactive-platform/docker"
 
 echo "Initiating idempotent deployment in the Linux environment (WSL 2)..."

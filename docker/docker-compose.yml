@@ -13,7 +13,7 @@ services:
       - rabbitmq_data:${RABBITMQ_DATA_PATH}
       - rabbitmq_log:${RABBITMQ_LOG_PATH}
     networks:
-      - ops-network
+      - restaurant-reactive-platform-network
   postgres:
     image: postgres:17-alpine
     container_name: postgres
@@ -27,7 +27,7 @@ services:
     volumes:
       - postgres_data:${POSTGRES_DATA_PATH}
     networks:
-      - ops-network
+      - restaurant-reactive-platform-network
   mongodb:
     image: mongo:6.0
     container_name: mongodb
@@ -40,7 +40,7 @@ services:
     volumes:
       - mongodb_data:${MONGODB_DATA_PATH}
     networks:
-      - ops-network
+      - restaurant-reactive-platform-network
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka
@@ -67,9 +67,9 @@ services:
       - kafka_data:${KAFKA_DATA_PATH}
       - kafka_log:${KAFKA_LOG_PATH}
     networks:
-      - ops-network
+      - restaurant-reactive-platform-network
 networks:
-  ops-network:
+  restaurant-reactive-platform-network:
     external: true 
 volumes:
   rabbitmq_data:
