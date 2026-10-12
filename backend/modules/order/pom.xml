@@ -9,8 +9,12 @@
   </parent>
   <artifactId>order</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
   <name>order</name>
   <url>http://maven.apache.org</url>
-  <dependencies />
+  <dependencies>
+    <dependency>
+      <groupId>com.felipebarrera</groupId>
+      <artifactId>shared-kernel</artifactId>
+    </dependency>
+  </dependencies>
 </project>

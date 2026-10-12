@@ -2,13 +2,79 @@ services:
   rabbitmq:
     image: rabbitmq:management
     container_name: rabbitmq
+    restart: unless-stopped
     ports:
-      - "${MESSAGE_PORT}:5672"
-      - "${ADMIN_PORT}:15672"
+      - "${RABBITMQ_MESSAGE_PORT}:5672"
+      - "${RABBITMQ_ADMIN_PORT}:15672"
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
     volumes:
-      - ${RABBITMQ_DATA_PATH}:/var/opt/rabbitmq/data
-      - ${RABBITMQ_LOG_PATH}:/var/opt/rabbitmq/log
- 
+      - rabbitmq_data:${RABBITMQ_DATA_PATH}
+      - rabbitmq_log:${RABBITMQ_LOG_PATH}
+    networks:
+      - ops-network
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:${POSTGRES_DATA_PATH}
+    networks:
+      - ops-network
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "${MONGO_PORT}:27017"
+    volumes:
+      - mongodb_data:${MONGODB_DATA_PATH}
+    networks:
+      - ops-network
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    hostname: kafka
+    user: root
+    ports:
+      - "${KAFKA_PORT}:9092"
+      - "${KAFKA_CONTROLLER_PORT}:9093"
+    environment:
+      KAFKA_NODE_ID: ${KAFKA_NODE_ID}
+      KAFKA_PROCESS_ROLES: ${KAFKA_PROCESS_ROLES}
+      KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:${KAFKA_PORT},CONTROLLER://0.0.0.0:${KAFKA_CONTROLLER_PORT}'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://localhost:${KAFKA_PORT}'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: ${KAFKA_CONTROLLER_QUORUM_VOTERS}
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
+      KAFKA_CLUSTER_ID: ${KAFKA_CLUSTER_ID}
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_LOG_DIRS: ${KAFKA_DATA_PATH}
+    volumes:
+      - kafka_data:${KAFKA_DATA_PATH}
+      - kafka_log:${KAFKA_LOG_PATH}
+    networks:
+      - ops-network
+networks:
+  ops-network:
+    external: true 
+volumes:
+  rabbitmq_data:
+  rabbitmq_log:
+  postgres_data:
+  mongodb_data:
+  kafka_data:
+  kafka_log:

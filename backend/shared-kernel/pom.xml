@@ -12,5 +12,10 @@
 	<name>shared-kernel</name>
 	<description>Shared Kernel</description>
 	<packaging>jar</packaging>
-	<dependencies />
+	<dependencies>
+		<dependency>
+			<groupId>com.felipebarrera</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
+	</dependencies>
 </project>

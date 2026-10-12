@@ -1,4 +1,0 @@
---patch-module
-com.felipebarrera.shared.kernel=_
---add-reads
-com.felipebarrera.shared.kernel=ALL-UNNAMED

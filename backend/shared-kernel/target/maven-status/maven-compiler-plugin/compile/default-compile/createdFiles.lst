@@ -1,2 +1,10 @@
-module-info.class
+com\felipebarrera\shared\kernel\Email.class
+com\felipebarrera\shared\kernel\ValueObject.class
+com\felipebarrera\shared\kernel\AggregateRoot.class
+com\felipebarrera\shared\kernel\Money.class
+com\felipebarrera\shared\kernel\DomainEvent.class
+com\felipebarrera\shared\kernel\BusinessRuleException.class
+com\felipebarrera\shared\kernel\DomainException.class
+com\felipebarrera\shared\kernel\PhoneNumber.class
+com\felipebarrera\shared\kernel\Identifier.class
 com\felipebarrera\shared\kernel\App.class

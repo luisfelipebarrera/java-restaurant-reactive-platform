@@ -9,8 +9,7 @@
   </parent>
   <artifactId>notification</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
   <name>notification</name>
   <url>http://maven.apache.org</url>
-  <dependencies/>
+  <dependencies />
 </project>

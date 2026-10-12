@@ -1,2 +1,10 @@
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\AggregateRoot.java
 E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\App.java
-E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\module-info.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\BusinessRuleException.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\DomainEvent.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\DomainException.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\Email.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\Identifier.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\Money.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\PhoneNumber.java
+E:\repository\java-restaurant-reactive-platform\backend\shared-kernel\src\main\java\com\felipebarrera\shared\kernel\ValueObject.java
